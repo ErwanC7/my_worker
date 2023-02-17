@@ -36,12 +36,11 @@ def main(argc, argv):
     cursor = sql_db.cursor()
 
     # Remove all databases
-    if argc == 2 and argv[1] == '-r':
+    if argc == 2 and (argv[1] == '-r' or argv[1] == '--remove'):
         remove_all(cursor, nosql)
 
     # Create databases with tables
     nosql_db = create_database(cursor, nosql)
-    cursor.execute("USE rooms")
     create_rooms_table(nosql_db)
     cursor.execute("USE users")
     create_users_table(cursor)

@@ -10,9 +10,7 @@ def insert_rooms(nosql_db):
     else:
         return print("Wrong input")
     owner_name = input("Owner name ?\n")
-    print("Perry?")
     nosql_db[building].insert_one({"owner_name": owner_name})
-    print("Perry3?")
     return print('room added to ' + building + ' owned by ' + owner_name, end='\n\n')
 
 
